@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dndmlt61jbs4y"]
+
+[ext_resource type="Script" uid="uid://bobobj3mgernx" path="res://game.gd" id="1_e2o6t"]
+[ext_resource type="Texture2D" uid="uid://drgevqwisfwv6" path="res://bg.png" id="2_feb5d"]
+[ext_resource type="PackedScene" uid="uid://b2qye1wr5ltac" path="res://player.tscn" id="3_feb5d"]
+[ext_resource type="PackedScene" uid="uid://dn8t26nisgo4h" path="res://spikes.tscn" id="4_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://jv5q2hd2nps7" path="res://hearts.tscn" id="5_7jktm"]
+
+[node name="Game" type="Node2D" unique_id=923596765]
+script = ExtResource("1_e2o6t")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1279118492]
+position = Vector2(576, 306)
+texture = ExtResource("2_feb5d")
+
+[node name="Player" parent="." unique_id=1309272841 instance=ExtResource("3_feb5d")]
+position = Vector2(584, 334)
+
+[node name="spikes" parent="." unique_id=1538201667 instance=ExtResource("4_fc0e3")]
+position = Vector2(236, 217)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=186401308]
+
+[node name="Hearts" parent="CanvasLayer" unique_id=753852208 instance=ExtResource("5_7jktm")]
+offset_right = 60.0
+offset_bottom = 60.0

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://jv5q2hd2nps7"]
+
+[ext_resource type="Script" uid="uid://dsw7k2qepy7dh" path="res://hearts.gd" id="1_qbydv"]
+
+[node name="Heartscontainer" type="HBoxContainer" unique_id=753852208]
+theme_override_constants/separation = 34
+script = ExtResource("1_qbydv")

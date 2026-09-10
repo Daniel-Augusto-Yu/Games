@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b71v10xhjtj6b"]
+
+[ext_resource type="Script" uid="uid://dvxsv4a817l04" path="res://heart_gui.gd" id="1_460sw"]
+[ext_resource type="Texture2D" uid="uid://c2t8c6qf41rar" path="res://New Piskel (1).png" id="2_460sw"]
+
+[node name="HeartGUI" type="Panel" unique_id=333749303]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(30, 21)
+offset_right = 59.0
+offset_bottom = 37.0
+script = ExtResource("1_460sw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=775269428]
+texture_filter = 1
+scale = Vector2(2, 2)
+texture = ExtResource("2_460sw")
+centered = false
+hframes = 3

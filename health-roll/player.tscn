@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://b2qye1wr5ltac"]
+
+[ext_resource type="Script" uid="uid://dxoirn4lcr0on" path="res://player.gd" id="1_1jxqw"]
+[ext_resource type="Texture2D" uid="uid://dbngl2a12itiy" path="res://down1.png" id="2_dw050"]
+[ext_resource type="Texture2D" uid="uid://b61b4w3vb4tvb" path="res://down2.png" id="3_b26j0"]
+[ext_resource type="Texture2D" uid="uid://bpmi4jt2qqjqa" path="res://parado.png" id="4_n7ghd"]
+[ext_resource type="Texture2D" uid="uid://becnkws5cg8dc" path="res://andando.png" id="5_nvl01"]
+[ext_resource type="Texture2D" uid="uid://2k1m42xa41kd" path="res://up1.png" id="6_ivps1"]
+[ext_resource type="Texture2D" uid="uid://dlcu47icxhit5" path="res://up2.png" id="7_urp6f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yf5fn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dw050")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_b26j0")
+}],
+"loop": 1,
+"name": &"Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_n7ghd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nvl01")
+}],
+"loop": 1,
+"name": &"Right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_ivps1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_urp6f")
+}],
+"loop": 1,
+"name": &"Up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(82, 86)
+
+[node name="Player" type="CharacterBody2D" unique_id=1309272841]
+script = ExtResource("1_1jxqw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1985027580]
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=838664451]
+sprite_frames = SubResource("SpriteFrames_yf5fn")
+animation = &"Right"
+frame = 1
+frame_progress = 0.6017781
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1086908974]
+
+[node name="hurtbox" type="Area2D" parent="." unique_id=262473418]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox" unique_id=1240734772]
+position = Vector2(-1, -2)
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[connection signal="area_entered" from="hurtbox" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
