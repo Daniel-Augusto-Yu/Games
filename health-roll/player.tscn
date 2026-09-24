@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://becnkws5cg8dc" path="res://andando.png" id="5_nvl01"]
 [ext_resource type="Texture2D" uid="uid://2k1m42xa41kd" path="res://up1.png" id="6_ivps1"]
 [ext_resource type="Texture2D" uid="uid://dlcu47icxhit5" path="res://up2.png" id="7_urp6f"]
+[ext_resource type="Texture2D" uid="uid://3vgnk24odfo2" path="res://roll.png" id="8_dw050"]
+[ext_resource type="Texture2D" uid="uid://6w17jktc00ur" path="res://roll - Copia.png" id="9_b26j0"]
+[ext_resource type="PackedScene" uid="uid://du2wrr2naixqe" path="res://gun.tscn" id="10_n7ghd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 
@@ -44,6 +47,28 @@ animations = [{
 "loop": 1,
 "name": &"Up",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_n7ghd")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_dw050")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_b26j0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_dw050")
+}],
+"loop": 0,
+"name": &"roll",
+"speed": 7.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
@@ -57,17 +82,20 @@ shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=838664451]
 sprite_frames = SubResource("SpriteFrames_yf5fn")
-animation = &"Right"
-frame = 1
-frame_progress = 0.6017781
+animation = &"roll"
+frame = 2
+frame_progress = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1086908974]
 
 [node name="hurtbox" type="Area2D" parent="." unique_id=262473418]
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox" unique_id=1240734772]
 position = Vector2(-1, -2)
 shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="Gun" parent="." unique_id=776024469 instance=ExtResource("10_n7ghd")]
 
 [connection signal="area_entered" from="hurtbox" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]

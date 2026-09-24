@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://du2wrr2naixqe"]
+
+[ext_resource type="Script" uid="uid://cfexv4wgwi8tp" path="res://gun.gd" id="1_dk5gl"]
+[ext_resource type="Texture2D" uid="uid://byjb3er5ulv7t" path="res://New Piskel.png" id="2_dk5gl"]
+
+[node name="Gun" type="Node2D" unique_id=776024469]
+script = ExtResource("1_dk5gl")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1766546086]
+texture_filter = 1
+position = Vector2(28, -15)
+texture = ExtResource("2_dk5gl")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1120046411]
+position = Vector2(54, -21)
